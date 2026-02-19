@@ -11,10 +11,6 @@ struct GameOverOverlayColdwaterGlimpse: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(0.6)
-                .ignoresSafeArea()
-                .onTapGesture { }
-
             FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
                 VStack(spacing: 16) {
                     Text("Game Over")

@@ -24,6 +24,12 @@ struct ContentView: View {
             screenLayerColdwaterGlimpse
 
             if showSettingsColdwaterGlimpse {
+                Color.black.opacity(0.55)
+                    .ignoresSafeArea()
+                    .onTapGesture { }
+                    .transition(.identity)
+                    .zIndex(10)
+
                 SettingsOverlayColdwaterGlimpse(onCloseColdwaterGlimpse: {
                     withAnimation(.easeInOut(duration: 0.3)) { showSettingsColdwaterGlimpse = false }
                 })

@@ -9,10 +9,6 @@ struct PauseOverlayColdwaterGlimpse: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(0.55)
-                .ignoresSafeArea()
-                .onTapGesture { }
-
             FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
                 VStack(spacing: 20) {
                     Image(systemName: "pause.circle.fill")

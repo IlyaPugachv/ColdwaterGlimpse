@@ -32,6 +32,11 @@ struct GameplayViewColdwaterGlimpse: View {
             }
 
             if engineColdwaterGlimpse.phaseColdwaterGlimpse == .pausedColdwaterGlimpse {
+                Color.black.opacity(0.55)
+                    .ignoresSafeArea()
+                    .onTapGesture { }
+                    .transition(.identity)
+
                 PauseOverlayColdwaterGlimpse(
                     onContinueColdwaterGlimpse: { engineColdwaterGlimpse.resumeFromPauseColdwaterGlimpse() },
                     onRestartColdwaterGlimpse: {
@@ -44,6 +49,11 @@ struct GameplayViewColdwaterGlimpse: View {
             }
 
             if engineColdwaterGlimpse.phaseColdwaterGlimpse == .gameOverColdwaterGlimpse {
+                Color.black.opacity(0.6)
+                    .ignoresSafeArea()
+                    .onTapGesture { }
+                    .transition(.identity)
+
                 GameOverOverlayColdwaterGlimpse(
                     scoreColdwaterGlimpse: engineColdwaterGlimpse.finalScoreColdwaterGlimpse,
                     recordColdwaterGlimpse: SettingsManagerColdwaterGlimpse.sharedColdwaterGlimpse.highScoreColdwaterGlimpse,

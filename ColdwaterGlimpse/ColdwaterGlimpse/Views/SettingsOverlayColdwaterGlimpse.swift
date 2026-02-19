@@ -9,10 +9,6 @@ struct SettingsOverlayColdwaterGlimpse: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(0.55)
-                .ignoresSafeArea()
-                .onTapGesture { }
-
             FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
                 VStack(spacing: 20) {
                     HStack {
@@ -80,7 +76,11 @@ struct SettingsOverlayColdwaterGlimpse: View {
             .padding(.horizontal, 28)
 
             if showResetConfirmColdwaterGlimpse {
-                resetConfirmDialogColdwaterGlimpse
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .transition(.identity)
+
+                resetConfirmPanelColdwaterGlimpse
                     .transition(.opacity.combined(with: .scale(scale: 0.9)))
             }
         }
@@ -110,43 +110,38 @@ struct SettingsOverlayColdwaterGlimpse: View {
 
     // MARK: - Reset confirmation
 
-    private var resetConfirmDialogColdwaterGlimpse: some View {
-        ZStack {
-            Color.black.opacity(0.4)
-                .ignoresSafeArea()
+    private var resetConfirmPanelColdwaterGlimpse: some View {
+        FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
+            VStack(spacing: 16) {
+                Text("Reset High Score?")
+                    .font(.latoBlackColdwaterGlimpse(20))
+                    .foregroundColor(.white)
 
-            FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
-                VStack(spacing: 16) {
-                    Text("Reset High Score?")
-                        .font(.latoBlackColdwaterGlimpse(20))
-                        .foregroundColor(.white)
+                Text("This action cannot be undone.")
+                    .font(.latoBlackColdwaterGlimpse(14))
+                    .foregroundColor(.white.opacity(0.6))
 
-                    Text("This action cannot be undone.")
-                        .font(.latoBlackColdwaterGlimpse(14))
-                        .foregroundColor(.white.opacity(0.6))
-
-                    HStack(spacing: 12) {
-                        IceButtonColdwaterGlimpse(
-                            titleColdwaterGlimpse: "Cancel",
-                            colorColdwaterGlimpse: ColorPaletteColdwaterGlimpse.darkTealColdwaterGlimpse,
-                            actionColdwaterGlimpse: {
-                                withAnimation { showResetConfirmColdwaterGlimpse = false }
-                            }
-                        )
-                        IceButtonColdwaterGlimpse(
-                            titleColdwaterGlimpse: "Reset",
-                            colorColdwaterGlimpse: ColorPaletteColdwaterGlimpse.crimsonRedColdwaterGlimpse,
-                            actionColdwaterGlimpse: {
-                                settingsColdwaterGlimpse.resetHighScoreColdwaterGlimpse()
-                                withAnimation { showResetConfirmColdwaterGlimpse = false }
-                            }
-                        )
-                    }
+                HStack(spacing: 12) {
+                    IceButtonColdwaterGlimpse(
+                        titleColdwaterGlimpse: "Cancel",
+                        colorColdwaterGlimpse: ColorPaletteColdwaterGlimpse.darkTealColdwaterGlimpse,
+                        actionColdwaterGlimpse: {
+                            withAnimation { showResetConfirmColdwaterGlimpse = false }
+                        }
+                    )
+                    IceButtonColdwaterGlimpse(
+                        titleColdwaterGlimpse: "Reset",
+                        colorColdwaterGlimpse: ColorPaletteColdwaterGlimpse.crimsonRedColdwaterGlimpse,
+                        actionColdwaterGlimpse: {
+                            settingsColdwaterGlimpse.resetHighScoreColdwaterGlimpse()
+                            withAnimation { showResetConfirmColdwaterGlimpse = false }
+                        }
+                    )
                 }
-                .frame(maxWidth: 260)
-            })
-            .padding(.horizontal, 40)
-        }
+            }
+            .frame(maxWidth: 260)
+        })
+        .padding(.horizontal, 40)
     }
 }
 
