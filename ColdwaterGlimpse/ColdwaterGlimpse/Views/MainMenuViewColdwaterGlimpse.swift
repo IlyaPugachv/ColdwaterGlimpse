@@ -6,7 +6,6 @@ struct MainMenuViewColdwaterGlimpse: View {
     let onSettingsColdwaterGlimpse: () -> Void
 
     @ObservedObject private var settingsColdwaterGlimpse = SettingsManagerColdwaterGlimpse.sharedColdwaterGlimpse
-    @State private var logoBounceColdwaterGlimpse: CGFloat = 0
     @State private var appearedColdwaterGlimpse = false
 
     var body: some View {
@@ -22,14 +21,7 @@ struct MainMenuViewColdwaterGlimpse: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 180, height: 180)
-                    .offset(y: logoBounceColdwaterGlimpse)
                     .shadow(color: ColorPaletteColdwaterGlimpse.skyBlueColdwaterGlimpse.opacity(0.5), radius: 20)
-
-                Text("Coldwater Glimpse")
-                    .font(.latoBlackColdwaterGlimpse(32))
-                    .foregroundColor(.white)
-                    .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
-                    .padding(.top, 8)
 
                 Spacer().frame(height: 30)
 
@@ -47,9 +39,6 @@ struct MainMenuViewColdwaterGlimpse: View {
         }
         .onAppear {
             withAnimation(.easeOut(duration: 0.5)) { appearedColdwaterGlimpse = true }
-            withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
-                logoBounceColdwaterGlimpse = -8
-            }
         }
     }
 

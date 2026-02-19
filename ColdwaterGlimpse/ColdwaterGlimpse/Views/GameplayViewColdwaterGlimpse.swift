@@ -78,6 +78,8 @@ struct GameplayViewColdwaterGlimpse: View {
             Text("Round \(engineColdwaterGlimpse.currentRoundColdwaterGlimpse)")
                 .font(.latoBlackColdwaterGlimpse(18))
                 .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.8), radius: 2, x: 0, y: 1)
+                .shadow(color: ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.6), radius: 4, x: 0, y: 0)
 
             Spacer()
 
@@ -86,6 +88,7 @@ struct GameplayViewColdwaterGlimpse: View {
                 Text("Score: \(engineColdwaterGlimpse.finalScoreColdwaterGlimpse)")
                     .font(.latoBlackColdwaterGlimpse(16))
                     .foregroundColor(ColorPaletteColdwaterGlimpse.goldAccentColdwaterGlimpse)
+                    .shadow(color: .black.opacity(0.7), radius: 2, x: 0, y: 1)
             }
 
             Spacer()
@@ -98,7 +101,9 @@ struct GameplayViewColdwaterGlimpse: View {
                     .font(.system(size: 20))
                     .foregroundColor(.white)
                     .frame(width: 44, height: 44)
-                    .background(Circle().fill(Color.white.opacity(0.15)))
+                    .background(Circle().fill(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.7)))
+                    .overlay(Circle().stroke(Color.white.opacity(0.2), lineWidth: 1))
+                    .shadow(color: .black.opacity(0.4), radius: 2, y: 1)
             }
         }
     }
@@ -172,9 +177,21 @@ struct GameplayViewColdwaterGlimpse: View {
             }
 
             Text("Were there more, fewer, or exactly \(engineColdwaterGlimpse.comparisonValueColdwaterGlimpse)?")
-                .font(.latoBlackColdwaterGlimpse(15))
-                .foregroundColor(.white.opacity(0.85))
+                .font(.latoBlackColdwaterGlimpse(18))
+                .foregroundColor(.white)
                 .multilineTextAlignment(.center)
+                .shadow(color: .black.opacity(0.85), radius: 3, x: 0, y: 1)
+                .shadow(color: ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.7), radius: 6, x: 0, y: 0)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .background(
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.75))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                        )
+                )
 
             HStack(spacing: 12) {
                 compareButtonColdwaterGlimpse(labelColdwaterGlimpse: "More", answerColdwaterGlimpse: .moreColdwaterGlimpse, colorColdwaterGlimpse: ColorPaletteColdwaterGlimpse.warmOrangeColdwaterGlimpse)
@@ -214,8 +231,20 @@ struct GameplayViewColdwaterGlimpse: View {
     private var exactUIColdwaterGlimpse: some View {
         VStack(spacing: 20) {
             Text("How many fish were there?")
-                .font(.latoBlackColdwaterGlimpse(18))
+                .font(.latoBlackColdwaterGlimpse(20))
                 .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.85), radius: 3, x: 0, y: 1)
+                .shadow(color: ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.7), radius: 6, x: 0, y: 0)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.75))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                        )
+                )
 
             Text(exactInputColdwaterGlimpse.isEmpty ? "—" : exactInputColdwaterGlimpse)
                 .font(.latoBlackColdwaterGlimpse(48))
