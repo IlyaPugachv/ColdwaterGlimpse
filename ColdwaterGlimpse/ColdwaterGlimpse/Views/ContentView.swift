@@ -43,8 +43,6 @@ struct ContentView: View {
         }
     }
 
-    // MARK: - Screen router
-
     @ViewBuilder
     private var screenLayerColdwaterGlimpse: some View {
         switch activeScreenColdwaterGlimpse {
@@ -120,8 +118,6 @@ struct ContentView: View {
         }
     }
 
-    // MARK: - Music
-
     private func manageMusicForScreenColdwaterGlimpse(_ screenColdwaterGlimpse: AppScreenColdwaterGlimpse) {
         switch screenColdwaterGlimpse {
         case .splashColdwaterGlimpse, .onboardingColdwaterGlimpse:
@@ -134,8 +130,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

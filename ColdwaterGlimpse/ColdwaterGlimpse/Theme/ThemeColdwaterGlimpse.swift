@@ -156,24 +156,3 @@ struct SnowflakeParticleColdwaterGlimpse: View {
             }
     }
 }
-
-#Preview {
-    ZStack {
-        BackgroundViewColdwaterGlimpse()
-        VStack(spacing: 20) {
-            FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
-                Text("Ice Panel")
-                    .font(.latoBlackColdwaterGlimpse(24))
-                    .foregroundColor(.white)
-            })
-            TimerBarColdwaterGlimpse(progressColdwaterGlimpse: 0.65)
-                .padding(.horizontal, 40)
-            IceButtonColdwaterGlimpse(
-                titleColdwaterGlimpse: "Play",
-                colorColdwaterGlimpse: ColorPaletteColdwaterGlimpse.warmOrangeColdwaterGlimpse,
-                actionColdwaterGlimpse: {}
-            )
-            .padding(.horizontal, 40)
-        }
-    }
-}

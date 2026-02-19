@@ -78,7 +78,3 @@ struct SplashViewColdwaterGlimpse: View {
         }
     }
 }
-
-#Preview {
-    SplashViewColdwaterGlimpse(onFinishedColdwaterGlimpse: {})
-}

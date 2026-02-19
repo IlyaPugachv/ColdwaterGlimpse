@@ -91,8 +91,6 @@ struct SettingsOverlayColdwaterGlimpse: View {
         }
     }
 
-    // MARK: - Toggle row
-
     private func toggleRowColdwaterGlimpse(titleColdwaterGlimpse: String, iconColdwaterGlimpse: String, isOnColdwaterGlimpse: Binding<Bool>) -> some View {
         HStack {
             Image(systemName: iconColdwaterGlimpse)
@@ -107,8 +105,6 @@ struct SettingsOverlayColdwaterGlimpse: View {
                 .tint(ColorPaletteColdwaterGlimpse.warmOrangeColdwaterGlimpse)
         }
     }
-
-    // MARK: - Reset confirmation
 
     private var resetConfirmPanelColdwaterGlimpse: some View {
         FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
@@ -142,12 +138,5 @@ struct SettingsOverlayColdwaterGlimpse: View {
             .frame(maxWidth: 260)
         })
         .padding(.horizontal, 40)
-    }
-}
-
-#Preview {
-    ZStack {
-        BackgroundViewColdwaterGlimpse()
-        SettingsOverlayColdwaterGlimpse(onCloseColdwaterGlimpse: {})
     }
 }

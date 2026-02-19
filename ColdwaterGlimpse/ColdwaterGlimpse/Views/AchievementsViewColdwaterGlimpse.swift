@@ -36,8 +36,6 @@ struct AchievementsViewColdwaterGlimpse: View {
         }
     }
 
-    // MARK: - Header
-
     private var headerColdwaterGlimpse: some View {
         ZStack {
             Text("Achievements")
@@ -63,8 +61,6 @@ struct AchievementsViewColdwaterGlimpse: View {
         .padding(.top, 16)
         .padding(.bottom, 8)
     }
-
-    // MARK: - Card
 
     private func achievementCardColdwaterGlimpse(defColdwaterGlimpse: AchievementDefinitionColdwaterGlimpse, isUnlockedColdwaterGlimpse: Bool) -> some View {
         HStack(spacing: 14) {
@@ -123,8 +119,4 @@ struct AchievementsViewColdwaterGlimpse: View {
                 )
         )
     }
-}
-
-#Preview {
-    AchievementsViewColdwaterGlimpse(onBackColdwaterGlimpse: {})
 }

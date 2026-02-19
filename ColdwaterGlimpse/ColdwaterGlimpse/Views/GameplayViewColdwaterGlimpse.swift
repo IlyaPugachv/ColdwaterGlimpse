@@ -71,8 +71,6 @@ struct GameplayViewColdwaterGlimpse: View {
         }
     }
 
-    // MARK: - Header
-
     private var gameHeaderColdwaterGlimpse: some View {
         HStack {
             Text("Round \(engineColdwaterGlimpse.currentRoundColdwaterGlimpse)")
@@ -108,8 +106,6 @@ struct GameplayViewColdwaterGlimpse: View {
         }
     }
 
-    // MARK: - Content switching
-
     @ViewBuilder
     private var mainContentColdwaterGlimpse: some View {
         switch engineColdwaterGlimpse.phaseColdwaterGlimpse {
@@ -132,8 +128,6 @@ struct GameplayViewColdwaterGlimpse: View {
             EmptyView()
         }
     }
-
-    // MARK: - Fish field
 
     private var fishFieldColdwaterGlimpse: some View {
         GeometryReader { geoColdwaterGlimpse in
@@ -160,8 +154,6 @@ struct GameplayViewColdwaterGlimpse: View {
         }
         .aspectRatio(0.85, contentMode: .fit)
     }
-
-    // MARK: - Compare answer UI
 
     private var compareUIColdwaterGlimpse: some View {
         VStack(spacing: 28) {
@@ -225,8 +217,6 @@ struct GameplayViewColdwaterGlimpse: View {
         }
         .buttonStyle(ScaleButtonStyleColdwaterGlimpse())
     }
-
-    // MARK: - Exact answer UI
 
     private var exactUIColdwaterGlimpse: some View {
         VStack(spacing: 20) {
@@ -317,8 +307,6 @@ struct GameplayViewColdwaterGlimpse: View {
         .buttonStyle(ScaleButtonStyleColdwaterGlimpse())
     }
 
-    // MARK: - Correct flash
-
     private var correctFeedbackColdwaterGlimpse: some View {
         VStack(spacing: 12) {
             Image(systemName: "checkmark.circle.fill")
@@ -330,12 +318,4 @@ struct GameplayViewColdwaterGlimpse: View {
                 .foregroundColor(.white)
         }
     }
-}
-
-#Preview {
-    GameplayViewColdwaterGlimpse(
-        chosenModeColdwaterGlimpse: .compareColdwaterGlimpse,
-        onExitMenuColdwaterGlimpse: {},
-        onPlayAgainColdwaterGlimpse: {}
-    )
 }

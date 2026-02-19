@@ -50,14 +50,3 @@ struct PauseOverlayColdwaterGlimpse: View {
         }
     }
 }
-
-#Preview {
-    ZStack {
-        BackgroundViewColdwaterGlimpse()
-        PauseOverlayColdwaterGlimpse(
-            onContinueColdwaterGlimpse: {},
-            onRestartColdwaterGlimpse: {},
-            onExitColdwaterGlimpse: {}
-        )
-    }
-}

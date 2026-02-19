@@ -67,15 +67,3 @@ struct GameOverOverlayColdwaterGlimpse: View {
         }
     }
 }
-
-#Preview {
-    ZStack {
-        BackgroundViewColdwaterGlimpse()
-        GameOverOverlayColdwaterGlimpse(
-            scoreColdwaterGlimpse: 12,
-            recordColdwaterGlimpse: 10,
-            onReplayColdwaterGlimpse: {},
-            onMenuColdwaterGlimpse: {}
-        )
-    }
-}

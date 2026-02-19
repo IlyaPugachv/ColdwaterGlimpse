@@ -125,10 +125,3 @@ struct ModeSelectionViewColdwaterGlimpse: View {
         .buttonStyle(ScaleButtonStyleColdwaterGlimpse())
     }
 }
-
-#Preview {
-    ModeSelectionViewColdwaterGlimpse(
-        onSelectModeColdwaterGlimpse: { _ in },
-        onBackColdwaterGlimpse: {}
-    )
-}

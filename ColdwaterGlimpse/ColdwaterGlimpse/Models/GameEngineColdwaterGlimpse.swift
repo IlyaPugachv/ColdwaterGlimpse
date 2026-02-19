@@ -47,8 +47,6 @@ final class GameEngineColdwaterGlimpse: ObservableObject {
     private var savedPhaseColdwaterGlimpse: GamePhaseColdwaterGlimpse = .showingFieldColdwaterGlimpse
     private let settingsRefColdwaterGlimpse = SettingsManagerColdwaterGlimpse.sharedColdwaterGlimpse
 
-    // MARK: - Public API
-
     func launchNewSessionColdwaterGlimpse(modeColdwaterGlimpse: GameModeColdwaterGlimpse) {
         activeModeColdwaterGlimpse = modeColdwaterGlimpse
         currentRoundColdwaterGlimpse = 0
@@ -119,8 +117,6 @@ final class GameEngineColdwaterGlimpse: ObservableObject {
     var finalScoreColdwaterGlimpse: Int { max(0, currentRoundColdwaterGlimpse - 1) }
     var minDurationColdwaterGlimpse: Double { 1.5 }
 
-    // MARK: - Difficulty
-
     private func rangeForRoundColdwaterGlimpse() -> ClosedRange<Int> {
         switch currentRoundColdwaterGlimpse {
         case 1...3:  return 2...5
@@ -140,8 +136,6 @@ final class GameEngineColdwaterGlimpse: ObservableObject {
         default:     return 1.5
         }
     }
-
-    // MARK: - Generation
 
     private func buildFishArrayColdwaterGlimpse() {
         var listColdwaterGlimpse: [FishOnFieldColdwaterGlimpse] = []
@@ -164,8 +158,6 @@ final class GameEngineColdwaterGlimpse: ObservableObject {
         comparisonValueColdwaterGlimpse = max(1, realFishCountColdwaterGlimpse + offsetColdwaterGlimpse)
         displaySpeciesColdwaterGlimpse = Int.random(in: 1...6)
     }
-
-    // MARK: - Timer
 
     private func startCountdownColdwaterGlimpse() {
         timerProgressColdwaterGlimpse = 1.0
@@ -197,8 +189,6 @@ final class GameEngineColdwaterGlimpse: ObservableObject {
             }
     }
 
-    // MARK: - Result handling
-
     private func onCorrectColdwaterGlimpse() {
         HapticsManagerColdwaterGlimpse.notifyColdwaterGlimpse(.success)
         evaluateAchievementsColdwaterGlimpse()
@@ -222,8 +212,6 @@ final class GameEngineColdwaterGlimpse: ObservableObject {
         evaluateLossAchievementsColdwaterGlimpse()
         withAnimation(.easeInOut(duration: 0.4)) { phaseColdwaterGlimpse = .gameOverColdwaterGlimpse }
     }
-
-    // MARK: - Achievements
 
     private func evaluateAchievementsColdwaterGlimpse() {
         let streakColdwaterGlimpse = currentRoundColdwaterGlimpse

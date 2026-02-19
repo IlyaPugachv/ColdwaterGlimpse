@@ -41,8 +41,6 @@ struct OnboardingViewColdwaterGlimpse: View {
         }
     }
 
-    // MARK: - Subviews
-
     private func onboardingCardColdwaterGlimpse(indexColdwaterGlimpse: Int) -> some View {
         let pageColdwaterGlimpse = pagesColdwaterGlimpse[indexColdwaterGlimpse]
         return VStack(spacing: 20) {
@@ -139,8 +137,4 @@ struct OnboardingViewColdwaterGlimpse: View {
             }
         )
     }
-}
-
-#Preview {
-    OnboardingViewColdwaterGlimpse(onCompleteColdwaterGlimpse: {})
 }

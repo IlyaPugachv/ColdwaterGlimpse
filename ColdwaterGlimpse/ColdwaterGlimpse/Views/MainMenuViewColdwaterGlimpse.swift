@@ -42,8 +42,6 @@ struct MainMenuViewColdwaterGlimpse: View {
         }
     }
 
-    // MARK: - Subviews
-
     private var recordPanelColdwaterGlimpse: some View {
         FrostedPanelColdwaterGlimpse(builderColdwaterGlimpse: {
             VStack(spacing: 6) {
@@ -93,12 +91,4 @@ struct MainMenuViewColdwaterGlimpse: View {
         }
         .allowsHitTesting(false)
     }
-}
-
-#Preview {
-    MainMenuViewColdwaterGlimpse(
-        onPlayColdwaterGlimpse: {},
-        onAchievementsColdwaterGlimpse: {},
-        onSettingsColdwaterGlimpse: {}
-    )
 }
