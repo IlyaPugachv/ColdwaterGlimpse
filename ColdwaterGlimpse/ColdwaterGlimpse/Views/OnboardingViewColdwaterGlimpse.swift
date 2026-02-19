@@ -17,6 +17,10 @@ struct OnboardingViewColdwaterGlimpse: View {
             BackgroundViewColdwaterGlimpse()
 
             VStack(spacing: 0) {
+                onboardingHeaderColdwaterGlimpse
+                    .padding(.horizontal, 20)
+                    .padding(.top, 16)
+
                 TabView(selection: $currentPageColdwaterGlimpse) {
                     ForEach(0..<pagesColdwaterGlimpse.count, id: \.self) { indexColdwaterGlimpse in
                         onboardingCardColdwaterGlimpse(indexColdwaterGlimpse: indexColdwaterGlimpse)
@@ -53,10 +57,21 @@ struct OnboardingViewColdwaterGlimpse: View {
                 .padding(.horizontal, 24)
 
             Text(pageColdwaterGlimpse.textColdwaterGlimpse)
-                .font(.latoBlackColdwaterGlimpse(16))
+                .font(.latoBlackColdwaterGlimpse(19))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
+                .lineSpacing(5)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 16)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.72))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                        )
+                )
+                .padding(.horizontal, 28)
                 .fixedSize(horizontal: false, vertical: true)
 
             Spacer()
@@ -66,11 +81,48 @@ struct OnboardingViewColdwaterGlimpse: View {
     private var pageIndicatorColdwaterGlimpse: some View {
         HStack(spacing: 10) {
             ForEach(0..<pagesColdwaterGlimpse.count, id: \.self) { iColdwaterGlimpse in
-                Circle()
-                    .fill(iColdwaterGlimpse == currentPageColdwaterGlimpse ? Color.white : Color.white.opacity(0.35))
-                    .frame(width: 10, height: 10)
+                Capsule()
+                    .fill(iColdwaterGlimpse == currentPageColdwaterGlimpse ? Color.white : Color.white.opacity(0.45))
+                    .frame(width: iColdwaterGlimpse == currentPageColdwaterGlimpse ? 30 : 12, height: 12)
+                    .overlay(
+                        Capsule()
+                            .stroke(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.35), lineWidth: 1)
+                    )
+                    .shadow(color: .black.opacity(0.2), radius: 3, y: 1)
                     .animation(.easeInOut(duration: 0.2), value: currentPageColdwaterGlimpse)
             }
+        }
+    }
+
+    private var onboardingHeaderColdwaterGlimpse: some View {
+        HStack {
+            Button(action: {
+                AudioManagerColdwaterGlimpse.sharedColdwaterGlimpse.playClickColdwaterGlimpse()
+                guard currentPageColdwaterGlimpse > 0 else { return }
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    currentPageColdwaterGlimpse -= 1
+                }
+            }) {
+                HStack(spacing: 4) {
+                    Image(systemName: "chevron.left")
+                    Text("Back")
+                }
+                .font(.latoBlackColdwaterGlimpse(16))
+                .foregroundColor(currentPageColdwaterGlimpse > 0 ? .white : .white.opacity(0.4))
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.65))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                )
+            }
+            .disabled(currentPageColdwaterGlimpse == 0)
+
+            Spacer()
         }
     }
 

@@ -24,7 +24,6 @@ struct BackgroundViewColdwaterGlimpse: View {
     var body: some View {
         Image("BackgroundColdwaterGlimpse")
             .resizable()
-            .aspectRatio(contentMode: .fill)
             .ignoresSafeArea()
     }
 }

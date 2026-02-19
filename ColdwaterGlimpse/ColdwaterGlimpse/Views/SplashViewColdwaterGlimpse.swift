@@ -43,10 +43,24 @@ struct SplashViewColdwaterGlimpse: View {
 
                 Spacer()
 
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                    .scaleEffect(1.2)
-                    .padding(.bottom, 60)
+                ZStack {
+                    Circle()
+                        .fill(ColorPaletteColdwaterGlimpse.deepNavyColdwaterGlimpse.opacity(0.72))
+                        .frame(width: 50, height: 50)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.white.opacity(0.22), lineWidth: 1)
+                        )
+
+                    ProgressView()
+                        .progressViewStyle(
+                            CircularProgressViewStyle(
+                                tint: ColorPaletteColdwaterGlimpse.warmOrangeColdwaterGlimpse
+                            )
+                        )
+                        .scaleEffect(1.35)
+                }
+                .padding(.bottom, 60)
             }
         }
         .onAppear {
